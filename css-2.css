@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 header {
@@ -23,6 +24,7 @@ ol {
   display: flex;
 }
 main{
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,9 +45,10 @@ section {
   flex-direction: column;
   text-transform: uppercase;
   width: 90%;
-  /* margin: 30px; */
+  margin: 15px;
   /* border: 1px solid red; */
   overflow: auto;
+  height: 100%;
 }
 
 a {
