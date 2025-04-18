@@ -41,6 +41,6 @@ form.addEventListener("submit", (e) => {
       divError.appendChild(unordedList);
     });
   } else {
-    window.location.href = "./pagina-cuatro.html<"
+    window.location.href = "./pagina-cuatro.html"
   }
 });
