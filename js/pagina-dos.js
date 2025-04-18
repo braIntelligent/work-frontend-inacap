@@ -11,8 +11,6 @@ const button_four = document.getElementById('button_four');
 const div_four = document.getElementById('div_four');
 
 
-console.log(button_one.innerHTML);
-
 const active = function (button, div) {
   button.addEventListener('click', function () {
     if (button.innerHTML == 'Ver mas') {
@@ -22,7 +20,7 @@ const active = function (button, div) {
       button.innerHTML = 'Ver mas'
       div.style.display = 'none'
     }
-  });
+  })
 }
 
 active(button_one, div_one);

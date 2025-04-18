@@ -1,29 +1,46 @@
-const input_name = document.getElementById('name');
-const input_email = document.getElementById('email');
-const input_number = document.getElementById('number');
+const form = document.getElementById("form");
+const divError = document.getElementById("error");
+const sendButton = document.getElementById("send");
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-const button = document.getElementById('submit');
+  divError.innerHTML = "";
 
-let paragraph = ''
+  const unordedList = document.createElement("ol");
+  unordedList.classList = "ul";
 
-button.addEventListener('click', function (e) {
-  const value_name = input_name.value;
-  const value_email = input_email.value;
-  const value_number = input_number.value;
+  const value_name = document.getElementById("name").value;
+  const value_email = document.getElementById("email").value;
+  const value_number = document.getElementById("number").value;
 
-  if (value_name.length >= 4 && value_email.includes('@gmail.com') || value_email.includes('@hotmail.com') && value_number.length == 9) {
-    button.href = "./pagina-cuatro.html"
+  const errors = [];
+
+  if (value_name.length < 3) {
+    errors.push("Nombre inválido.");
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (
+    !emailRegex.test(value_email) ||
+    (!value_email.includes("gmail.com") && !value_email.includes("hotmail.com"))
+  ) {
+    errors.push("Email inválido.");
+  }
+
+  if (value_number.length !== 9 || isNaN(value_number)) {
+    errors.push("Número inválido.");
+  }
+
+  if (errors.length > 0) {
+    errors.forEach((error) => {
+      const listItem = document.createElement("li");
+      listItem.classList = "ul";
+      listItem.textContent = error;
+      unordedList.appendChild(listItem);
+      divError.appendChild(unordedList);
+    });
   } else {
-    if (!paragraph) {
-      paragraph = document.createElement('p');
-      paragraph.style.margin = '0'
-      paragraph.textContent = 'Ingresa campos validos.';
-      const div = document.getElementById('dive');
-      div.appendChild(paragraph);
-    };
+    window.location.href = "./pagina-cuatro.html<"
   }
 });
-
-
-
